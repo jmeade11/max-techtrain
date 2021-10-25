@@ -23,9 +23,9 @@ function App() {
 			</div>
 			{show === 'break' ? (
 				<Breaktime />
-			) : 'quiz' ? (
+			) : show === 'quiz' ? (
 				<Quiztime />
-			) : 'lab' ? (
+			) : show === 'lab' ? (
 				<Labtime />
 			) : (
 				<Questions />
