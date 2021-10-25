@@ -7,7 +7,7 @@
 }
 .break{
 background-color: lightblue;
-width: 33.3%;
+width: 25%;
 }
 .break:hover{
   background-color: blue;
@@ -15,7 +15,7 @@ width: 33.3%;
 
 .quiz{
 background-color: lightgreen;
-width: 33.3%;
+width: 25%;
 }
 .quiz:hover{
   background-color: green;
@@ -23,12 +23,16 @@ width: 33.3%;
 
 .lab{
 background-color: pink;
-width:33.3%;
+width:25%;
 }
 .lab:hover{
   background-color: red;
 }
-.question{
-  display: flex;
+.questions{
+  background-color: lightyellow;
+  width:25%;
+}
+.questions:hover{
+  background-color: yellow;
 }
 

@@ -20,6 +20,9 @@ function App() {
 				<div className="lab" onClick={() => setShow('lab')}>
 					<h1>Lab-Time</h1>
 				</div>
+				<div className='questions' onClick={()=>setShow('questions')}>
+					<h1>Questions</h1>
+				</div>
 			</div>
 			{show === 'break' ? (
 				<Breaktime />
@@ -27,9 +30,8 @@ function App() {
 				<Quiztime />
 			) : show === 'lab' ? (
 				<Labtime />
-			) : (
-				<Questions />
-			)}
+			) : <Questions />
+			}
 		</div>
 	);
 }
