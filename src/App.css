@@ -1,0 +1,34 @@
+.App {
+  text-align: center;
+  background-color: whitesmoke;
+}
+.nav{
+  display: flex;
+}
+.break{
+background-color: lightblue;
+width: 33.3%;
+}
+.break:hover{
+  background-color: blue;
+}
+
+.quiz{
+background-color: lightgreen;
+width: 33.3%;
+}
+.quiz:hover{
+  background-color: green;
+}
+
+.lab{
+background-color: pink;
+width:33.3%;
+}
+.lab:hover{
+  background-color: red;
+}
+.question{
+  display: flex;
+}
+
