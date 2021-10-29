@@ -1,20 +1,14 @@
+import MaxinBucket from '../images/maxins3bucket.jpeg';
 
-import './index.css'
-import MaxinBucket from '../images/maxins3bucket.jpeg'
+const Questions = () => {
+	return (
+		<>
+			<img src={MaxinBucket} alt="" />
+			<form>
+				<input type="text" />
+			</form>
+		</>
+	);
+};
 
-const Questions = (params) => {
-
-    return (
-        <div>
-        
-        <form>
-        <img src={MaxinBucket} alt="" />
-           
-           
-          
-            <input type="text" />
-          
-        </form>
-        </div>
-      )}
-   export default Questions
+export default Questions;
