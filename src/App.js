@@ -1,38 +1,42 @@
-import React, { useState } from 'react';
-import Breaktime from './Components/break-time';
-import Labtime from './Components/lab-time';
-import Quiztime from './Components/quiz-time';
-import Questions from './Components/questions';
-import './App.css';
+import { Route, Switch } from 'react-router';
+import { BreakTime, LabTime, QuizTime, Questions } from './components';
+import Navigation from './components/Navigation';
+import {
+	Footer,
+	FooterLink,
+	Header,
+	Main,
+	Title,
+	TitleBar,
+} from './components/shared';
+import logo from './logo.png';
 
 function App() {
-	const [show, setShow] = useState('break');
-
 	return (
-		<div className="App">
-			<div className="nav">
-				<div className="break" onClick={() => setShow('break')}>
-					<h1> Break-Time</h1>
-				</div>
-				<div className="quiz" onClick={() => setShow('quiz')}>
-					<h1> Quiz-Time </h1>
-				</div>
-				<div className="lab" onClick={() => setShow('lab')}>
-					<h1>Lab-Time</h1>
-				</div>
-				<div className='questions' onClick={()=>setShow('questions')}>
-					<h1>Questions</h1>
-				</div>
-			</div>
-			{show === 'break' ? (
-				<Breaktime />
-			) : show === 'quiz' ? (
-				<Quiztime />
-			) : show === 'lab' ? (
-				<Labtime />
-			) : <Questions />
-			}
-		</div>
+		<>
+			<Header>
+				<TitleBar>
+					<Title>Architecting on AWS</Title>
+					<img src={logo} alt="AWS Training and Certification" />
+				</TitleBar>
+				<Navigation />
+			</Header>
+			<Main>
+				<Switch>
+					<Route path="/breaktime" component={BreakTime} />
+					<Route path="/labtime" component={LabTime} />
+					<Route path="/quiztime" component={QuizTime} />
+					<Route path="/questions" component={Questions} />
+					<Route path="*" component={Questions} />
+				</Switch>
+			</Main>
+			<Footer>
+				&copy; {new Date().getFullYear()}{' '}
+				<FooterLink href="https://github.com/ThomasUtsey/max-techtrain">
+					Thomas Utsey
+				</FooterLink>
+			</Footer>
+		</>
 	);
 }
 
