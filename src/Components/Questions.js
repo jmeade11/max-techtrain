@@ -34,7 +34,6 @@ const Input = styled.input`
 
 const Questions = () => {
 	const randomImage = images[Math.floor(Math.random() * images.length)].default;
-	console.log(randomImage);
 	return (
 		<PageContainer>
 			<ImageContainer imgSrc={randomImage} />

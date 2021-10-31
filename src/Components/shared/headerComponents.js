@@ -31,17 +31,22 @@ export const NavListItem = styled.li`
 	font-weight: bold;
 	padding: 1rem;
 	text-align: center;
+	transition: background 0.15s;
 	user-select: none;
 
+	&.active,
 	&:hover,
-	&.active {
+	&:focus,
+	&:focus-within {
 		background-blend-mode: darken;
+		outline: none;
 	}
 
 	> a {
 		color: inherit;
 		display: inline-block;
 		margin: -1rem;
+		outline: none;
 		padding: 1rem;
 		text-align: inherit;
 		width: calc(100% + 2rem);
@@ -52,6 +57,7 @@ export const TitleBar = styled.div`
 	align-items: center;
 	display: grid;
 	grid-template-columns: 1fr 150px;
+	gap: 1rem;
 	margin-bottom: 1rem;
 `;
 
