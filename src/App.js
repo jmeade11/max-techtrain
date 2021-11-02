@@ -19,21 +19,21 @@ function App() {
 					<Title>Architecting on AWS</Title>
 					<img src={logo} alt="AWS Training and Certification" />
 				</TitleBar>
-				<Navigation />
+				{/* <Navigation /> */}
 			</Header>
 			<Main>
 				<Switch>
-					<Route path="/breaktime" component={BreakTime} />
+					{/* <Route path="/breaktime" component={BreakTime} />
 					<Route path="/labtime" component={LabTime} />
 					<Route path="/quiztime" component={QuizTime} />
-					<Route path="/questions" component={Questions} />
-					<Route path="*" component={Questions} />
+					<Route path="/questions" component={Questions} /> */}
+					<Route path="*" component={BreakTime} />
 				</Switch>
 			</Main>
 			<Footer>
 				&copy; {new Date().getFullYear()}{' '}
-				<FooterLink href="https://github.com/ThomasUtsey/max-techtrain">
-					Thomas Utsey
+				<FooterLink href="https://github.com/jmeade11/max-techtrain">
+					Jennifer Meade
 				</FooterLink>
 			</Footer>
 		</>
