@@ -179,15 +179,17 @@ const Timer = ({ format }) => {
 		const lunchTimeFormat = `${hours.toString().padStart(2, '0')}h ${minutes
 			.toString()
 			.padStart(2, '0')}m ${seconds.toString().padStart(2, '0')}s`;
-		const breakTimeFormat = `${minutes ? minutes + 'm' : ''} ${
-			minutes ? seconds.toString().padStart(2, '0') : seconds
-		}s`;
+		const breakTimeFormat = `${hours ? hours + 'h' : ''} ${
+			minutes ? minutes + 'm' : !minutes && hours ? '0m' : ''
+		} ${minutes ? seconds.toString().padStart(2, '0') : seconds}s`;
 		return format === 'breakTimeFormat' ? breakTimeFormat : lunchTimeFormat;
 	};
 
-	const setAll = (minutes) => {
-		setTime([0, minutes, 0]);
-		setTimer([0, minutes, 0]);
+	const setAll = (mins) => {
+		const hours = mins >= 60 ? Math.floor(mins / 60) : 0;
+		const minutes = mins >= 60 ? mins % 60 : mins;
+		setTime([hours, minutes, 0]);
+		setTimer([hours, minutes, 0]);
 	};
 
 	const timerExec = (key) => {
@@ -218,7 +220,7 @@ const Timer = ({ format }) => {
 			</OutlineButton>
 			<TimerControls onKeyDown={(event) => timerExec(event.code)}>
 				<RangeSliderLabel htmlFor="time">
-					Break Time: <span>{mins} minutes</span>
+					Break Time: <span>{hrs * 60 + mins} minutes</span>
 				</RangeSliderLabel>
 				<RangeSlider
 					id="time"
@@ -226,12 +228,12 @@ const Timer = ({ format }) => {
 					step="1"
 					list="tickmarks"
 					min={0}
-					max={20}
-					value={mins}
+					max={60}
+					value={hrs * 60 + mins}
 					onChange={(event) => setAll(parseInt(event.target.value, 10))}
 				/>
 				<SliderTicks id="tickmarks">
-					{[0, 5, 10, 15, 20].map((val) => (
+					{[0, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60].map((val) => (
 						<option
 							onKeyDown={(event) => {
 								if (event.key === 'Enter') {

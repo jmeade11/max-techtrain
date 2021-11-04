@@ -67,3 +67,8 @@ img {
 datalist option:hover {
 	background: blue;
 }
+
+li {
+	padding-bottom: 1rem;
+	font-size: larger;
+}
